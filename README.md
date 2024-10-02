@@ -7,4 +7,8 @@ docker run -d -p 9092:9092 --name kafka-broker apache/kafka:3.8.0
 access the registry with http://localhost:8081/subjects from web browser
 
 
+for schema registry configuration with docker  
+https://docs.confluent.io/platform/current/installation/docker/config-reference.html#sr-long-configuration
+
+
 
