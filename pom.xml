@@ -17,7 +17,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.2</version>
+        <version>3.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -30,33 +30,17 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
-        <!-- Avro Schema Serializer/Deserializer -->
-        <dependency>
-            <groupId>io.confluent</groupId>
-            <artifactId>kafka-avro-serializer</artifactId>
-            <version>7.0.1</version>
-        </dependency>
-
-        <!-- Avro Specific -->
-        <dependency>
-            <groupId>org.apache.avro</groupId>
-            <artifactId>avro</artifactId>
-            <version>1.11.0</version>
-        </dependency>
-
-        <!-- Spring Kafka Avro Support -->
-        <dependency>
-            <groupId>io.confluent</groupId>
-            <artifactId>kafka-streams-avro-serde</artifactId>
-            <version>7.0.1</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -65,31 +49,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.apache.avro</groupId>
-                <artifactId>avro-maven-plugin</artifactId>
-                <version>1.11.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>schema</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirectory>${project.basedir}/src/main/resources/avro</sourceDirectory>
-                            <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
-
-
-    <repositories>
-        <repository>
-            <id>confluent</id>
-            <url>https://packages.confluent.io/maven/</url>
-        </repository>
-    </repositories>
 
 </project>
